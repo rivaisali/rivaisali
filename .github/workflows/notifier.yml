@@ -1,7 +1,7 @@
 name: Telegram Pull Request Notifier
 on:
   pull_request:
-    types: [opened, review_requested]
+    branches: [main]
     
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
           token: ${{ secrets.BOTTOKEN }}
           message: |
             ${{ github.actor }} created commit:
-            Commit message: ${{ github.event.commits[0].message }}
+            Commit message: ${{ github.event.commits }}
             
             Repository: ${{ github.repository }}
             
